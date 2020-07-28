@@ -1,6 +1,6 @@
 ----How to create a DB------
-To create a db:
->> CREATE DATABASE MovieLens;
+# To create a db:
+CREATE DATABASE MovieLens;
 
 -----create tables for the small dataset-----
 #### table: movies ####

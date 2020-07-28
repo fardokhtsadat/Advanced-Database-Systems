@@ -6,8 +6,9 @@ CREATE DATABASE moviesDB;
 -----create and load tables for the big dataset------
 -------------------------------------------
 
-# the dataset contains 27753444 ratings and 1108997 tag applications across 58098 movies. 
+# The dataset contains 27753444 ratings and 1108997 tag applications across 58098 movies. 
 # These data were created by 283228 users between January 09, 1995 and September 26, 2018.
+# Data is obtained from https://grouplens.org/datasets/movielens/
 
 ######################
 #### table: users ####

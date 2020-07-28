@@ -42,6 +42,12 @@ FROM moviesDB.links
 INNER JOIN titles ON titles.movieId = links.movieId
 WHERE titles.title = 'Troublemaker (1988)';
 
+# Make a query to retrieve the average rating for the movie ‘White Dog (1982)’:
+
+SELECT titles.title, AVG(rating) 'Average rating'
+FROM moviesDB.ratings
+INNER JOIN titles ON titles.movieId = ratings.movieId
+WHERE titles.title = 'White Dog (1982)';
 
 
 

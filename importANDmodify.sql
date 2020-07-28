@@ -1,23 +1,23 @@
 ----How to create a DB------
 # To create a db:
-CREATE DATABASE MovieLens;
+CREATE DATABASE moviesDB;
 
 -------------------------------------------
 -----reate tables for the big dataset------
 -------------------------------------------
 
-#### table: movies ####
-# the original table "movies" is splited into two tables of "movieId_title" and "movieId_genres"
-CREATE TABLE movieId_title(
+#### table: titles ####
+# the original table "movies" is splited into two tables of "titles" and "genres"
+CREATE TABLE titles(
     movieId int(10),
     title varchar(300) NOT NULL
     );
 
-ALTER TABLE movieId_title ADD CONSTRAINT movieId_pk PRIMARY KEY (movieId);
+ALTER TABLE titles ADD CONSTRAINT movieId_pk PRIMARY KEY (movieId);
 
-##ALTER TABLE movieId_genres MODIFY genres varchar(30) NOT NULL;
+##ALTER TABLE genres MODIFY genres varchar(30) NOT NULL;
 
-CREATE TABLE movieId_genres(
+CREATE TABLE genres(
     movieId INT(10),
     genres VARCHAR(30) NOT NULL,
     FOREIGN KEY (movieId) REFERENCES movieId_title (movieId)

@@ -203,53 +203,8 @@ IGNORE 1 LINES
 (userId);
 
 
------graph design------
-https://medium.com/@yesilliali/design-a-movie-recommendation-system-with-using-graph-database-neo4j-part-1-2c4933f4da0a
-
-
-https://developers.sap.com/tutorials/hxe-aa-movielens-03.html
-
-
-find ~/ -type f -name "mysql.cnf"
-
-SET GLOBAL local_infile=1;
-mysql --local-infile=1 -u root -p
-
-
-
-CREATE TABLE new(
-    movieId INT(10),
-    link1 INT NOT NULL,
-    link2 INT NOT NULL
-    );
-
-ALTER TABLE new ADD FOREIGN KEY (movieId) REFERENCES movieId_title (movieId);
-ALTER TABLE new MODIFY link1 INT NULL;
-INSERT INTO new (movieId, link1 , link2) values (1, NULL, 42)
-
-INSERT INTO table_name (column1, column2, column3, ...)
-VALUES (value1, value2, value3, ...);
-
-
-
-CREATE TABLE new(
-    col1 INT NOT NULL, 
-    col2 DECIMAL(1,1) NOT NULL
-
-);
 ALTER TABLE ratings ADD FOREIGN KEY (movieId) REFERENCES movieId_title (movieId);
 ALTER TABLE ratings MODIFY movieId INT NOT NULL;
 
-select REPLACE(tmdbId,'',NULL) from temp.links;
 
-UPDATE links 
-SET tmdbId = NULL 
-WHERE tmdbId  = 0;
-
-set foreign_key_checks = 0;
-
-change the buffer:
-
-show global variables like 'innodb_buffer%';
-set global innodb_buffer_pool_size=2147483648;
 

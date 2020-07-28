@@ -9,23 +9,22 @@ length(movies$genres)
 
 # the table movies has 3 columns of "movieId" "title" "genres".
 # moviedId is uniques and starts from 1.
-#genres is multivalued. This violates the 1NF. To solve this problem, we need to devide the table moives into two tables with the first having "movieId" "title", and
-  #the secnd table having "movieId" and "genres".
+# genres is multivalued. This violates the 1NF. To solve this problem, we need to devide the table moives into two tables with the first table having "movieId" "title", and
+# the secnd table having "movieId" and "genres".
 
-movieId_title <- data.frame(movieId = movies$movieId, title= movies$title)
+movieId_title <- data.frame(movieId = movies$movieId, title= movies$title) # extract the columns movieId and title from movies.csv
 head(movieId_title)
 length(movieId_title$movieId)
 
-write.csv(movieId_title, "movieId_title.csv", row.names = F)
+write.csv(movieId_title, "titles.csv", row.names = F) # writing out the table 'titles.csv'
 
-s <- strsplit(as.character(movies$genres), split = "\\|")
+s <- strsplit(as.character(movies$genres), split = "\\|") # separating the multivalued genres
 movieId_genres <- data.frame(movieId = rep(movies$movieId, sapply(s, length)), genres = unlist(s))
 head(movieId_genres)
 length(movieId_genres$movieId)
 
 ####----tags----####
-#tags <- read.csv("/Users/fardokht/Desktop/ml-latest-small/tags.csv")
-tags <- read.csv("/Users/fardokht/Desktop/JCU/second-semester/database_systems/final_project/ml-latest/tags.csv")
+tags <- read.csv("~/database_systems/final_project/ml-latest/tags.csv") # read the data file 'tags.csv'
 head(tags)
 
 length(tags$userId)
@@ -41,7 +40,6 @@ length(users)
 length(unique(users))
 unique_ids <- (unique(users))
 
-
 users_df <- data.frame(unique_ids)
 head(users_df)
 tail(users_df)
@@ -52,8 +50,7 @@ tail(sorted_time )
 
 
 ####----ratings----####
-#ratings <- read.csv("/Users/fardokht/Desktop/ml-latest-small/ratings.csv")
-ratings <- read.csv("/Users/fardokht/Desktop/JCU/second-semester/database_systems/final_project/ml-latest/ratings.csv")
+ratings <- read.csv("~/database_systems/final_project/ml-latest/ratings.csv")
 head(ratings)
 #27753444
 length(ratings$userId)
@@ -67,12 +64,9 @@ unique(ratings$rating)
 rating_movieId <- length(unique(ratings$movieId))
 movies_movieId <- length(unique(movies$movieId))
 
-
-
 ####----links----####
+links <- read.csv("~/database_systems/final_project/ml-latest/links.csv")
 
-links <- read.csv("/Users/fardokht/Desktop/JCU/second-semester/database_systems/final_project/ml-latest/links.csv")
-#links <- read.csv("/Users/fardokht/Desktop/ml-latest-small/links.csv")
 head(links)
 length(links$movieId)
 tail(links)

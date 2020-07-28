@@ -6,8 +6,8 @@ CREATE DATABASE moviesDB;
 -----create and load tables for the big dataset------
 -------------------------------------------
 
-
-It contains 27753444 ratings and 1108997 tag applications across 58098 movies. These data were created by 283228 users between January 09, 1995 and September 26, 2018.
+# the dataset contains 27753444 ratings and 1108997 tag applications across 58098 movies. 
+# These data were created by 283228 users between January 09, 1995 and September 26, 2018.
 
 ######################
 #### table: users ####

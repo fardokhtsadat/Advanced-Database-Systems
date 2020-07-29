@@ -16,6 +16,24 @@ movieId_title <- data.frame(movieId = movies$movieId, title= movies$title) # ext
 head(movieId_title)
 length(movieId_title$movieId)
 
+movies$Year<-substr(movies$title,nchar(as.character(movies$title))-4,nchar(as.character(movies$title))-1)
+movies$title<-paste0(substr(movies$title,1,nchar(as.character(movies$title))-6))
+movies <- movies[,-3]
+write.csv(movies, "/Users/fardokht/Desktop/movieId_title.csv", row.names = F)
+
+length(movies$movieId)
+length(movies$Year )
+
+is.integer(movies$Year)
+movies$Year <- as.integer(movies$Year)
+
+which(is.na(test) == 0)
+
+movies$Year[which(is.na(movies$Year) == T)] <- rep(0, length(movies$Year[which(is.na(movies$Year) == T)]))
+
+
+
+
 write.csv(movieId_title, "titles.csv", row.names = F) # writing out the table 'titles.csv'
 
 s <- strsplit(as.character(movies$genres), split = "\\|") # separating the multivalued genres
